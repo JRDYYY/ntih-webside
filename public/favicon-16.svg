@@ -1,0 +1,21 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8A2BE2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="16" height="16" fill="url(#bg16)" rx="2"/>
+  <!-- Minimalistické NT logo pro malou velikost -->
+  <g fill="white">
+    <!-- N -->
+    <rect x="2" y="3" width="1" height="10"/>
+    <rect x="2" y="3" width="4" height="1"/>
+    <rect x="5" y="3" width="1" height="10"/>
+    
+    <!-- T/logo symbol -->
+    <rect x="9" y="3" width="1" height="10"/>
+    <rect x="9" y="3" width="4" height="1"/>
+    <rect x="11" y="3" width="1" height="5"/>
+  </g>
+</svg>
