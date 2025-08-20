@@ -8,99 +8,110 @@ import { translations, Language } from '../lib/translations';
 const HeroSection = () => {
   const { language } = useLanguage();
   const t = translations.hero[language as Language];
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const slides = {
-    cs: [
-      {
-        id: 1,
-        image: "/sep-ct-logo-full2-01.png",
-        title: "SEP-CT",
-        description: "Společnost, která se zabývá ukládáním tepla a chladu do speciálních kontejnerů. Využívá se to hlavně pro úsporu energie při vytápění nebo chlazení budov.",
-        buttonText: "Přejít na",
-        link: "https://sep-ct.com/"
-      },
-      {
-        id: 2,
-        image: "/ntih.png", 
-        title: "NTiH",
-        description: "Společnost zaměřená na požární bezpečnost a technologie pro moderní bydlení. Nabízí i poradenství a informace k ochraně domů a staveb.",
-        buttonText: "Přejít na",
-        link: "https://ntih.cz/"
-      },
-      {
-        id: 3,
-        image: "/Snímek obrazovky 2025-08-03 031009-fotor-bg-remover-202508033136.png",
-        title: "Blackout Connect",
-        description: "Společnost, která vyvíjí mobilní aplikaci na ovládání světel. Hodí se třeba na koncerty nebo akce, kde je potřeba mít osvětlení pod kontrolou bezdrátově.",
-        buttonText: "Přejít na",
-        link: "https://blackoutconnect.com/"
-      }
-    ],
-    en: [
-      {
-        id: 1,
-        image: "/sep-ct-logo-full2-01.png",
-        title: "SEP-CT",
-        description: "A company that specializes in storing heat and cold in special containers. This is mainly used for energy savings in heating or cooling buildings.",
-        buttonText: "Go to",
-        link: "https://sep-ct.com/"
-      },
-      {
-        id: 2,
-        image: "/ntih.png",
-        title: "NTiH", 
-        description: "A company focused on fire safety and technologies for modern housing. Also offers consulting and information for protecting homes and buildings.",
-        buttonText: "Go to",
-        link: "https://ntih.cz/"
-      },
-      {
-        id: 3,
-        image: "/Snímek obrazovky 2025-08-03 031009-fotor-bg-remover-202508033136.png",
-        title: "Blackout Connect",
-        description: "A company that develops a mobile app for controlling lights. Perfect for concerts or events where wireless lighting control is needed.",
-        buttonText: "Go to",
-        link: "https://blackoutconnect.com/"
-      }
-    ],
-    de: [
-      {
-        id: 1,
-        image: "/sep-ct-logo-full2-01.png",
-        title: "SEP-CT",
-        description: "Ein Unternehmen, das sich auf die Speicherung von Wärme und Kälte in speziellen Behältern spezialisiert. Dies wird hauptsächlich für Energieeinsparungen beim Heizen oder Kühlen von Gebäuden verwendet.",
-        buttonText: "Gehen zu",
-        link: "https://sep-ct.com/"
-      },
-      {
-        id: 2,
-        image: "/ntih.png",
-        title: "NTiH",
-        description: "Ein Unternehmen, das sich auf Brandschutz und Technologien für modernes Wohnen konzentriert. Bietet auch Beratung und Informationen zum Schutz von Häusern und Gebäuden.",
-        buttonText: "Gehen zu",
-        link: "https://ntih.cz/"
-      },
-      {
-        id: 3,
-        image: "/Snímek obrazovky 2025-08-03 031009-fotor-bg-remover-202508033136.png",
-        title: "Blackout Connect",
-        description: "Ein Unternehmen, das eine mobile App zur Lichtsteuerung entwickelt. Perfekt für Konzerte oder Veranstaltungen, bei denen drahtlose Lichtsteuerung benötigt wird.",
-        buttonText: "Gehen zu",
-        link: "https://blackoutconnect.com/"
-      }
-    ]
-  };
+const slides = {
+  cs: [
+    {
+      id: 1,
+      image: "/sep ct obrazek .png",
+      title: "SEP-CT",
+      description: "Chytrý energetický bod – Kontejnerové věže jsou revoluční technologií pro hospodaření s energiemi. Jedná se o velkokapacitní akumulační nádrže, které umožňují oddělit výrobu tepelné energie a její spotřebu v čase. Různé zdroje tepla lze libovolně kombinovat, stejně jako spotřebu.",
+      buttonText: "Přejít na",
+      link: "https://sep-ct.com/"
+    },
+    {
+      id: 2,
+      image: "/ntih pozar.jpg",
+      title: "NTiH",
+      description: "Speciální technologie a produkty v oblasti požárního zabezpečení elektronických zařízení, lithiových baterií, elektromobilů v podzemních garážích. Maximální zabezpečení energetické a informační konektivity v krizových situacích, při blackoutu, při živelných událostech.",
+      buttonText: "Přejít na",
+      link: "https://ntih.cz/"
+    },
+    {
+      id: 3,
+  image: "/ChatGPT Image Aug 18, 2025, 09_40_46 PM.png",
+      title: "Blackout Connect",
+      description: "Když vše zhasne, Vy zůstanete ve spojení.\nPřenosová satelitní souprava s vlastním internetem, telefonem, napájením a nonstop dohledem - připravená obnovit spojení do 10 minut, i když mobilní síť, pevné linky a elektřina vypadnou.",
+      buttonText: "Přejít na",
+      link: "https://blackoutconnect.com/"
+    }
+  ],
+  en: [
+    {
+      id: 1,
+      image: "/sep ct obrazek .png",
+      title: "SEP-CT",
+      description: "Smart Energy Point - Container Towers is a revolutionary technology for energy management. These are large-capacity accumulation tanks that allow separating thermal energy production and consumption over time. Various heat sources can be freely combined, as well as consumption.",
+      buttonText: "Go to",
+      link: "https://sep-ct.com/"
+    },
+    {
+      id: 2,
+      image: "/ntih pozar.jpg",
+      title: "NTiH",
+      description: "A company focused on fire safety and technologies for modern housing. Also offers consulting and information for protecting homes and buildings.",
+      buttonText: "Go to",
+      link: "https://ntih.cz/"
+    },
+    {
+      id: 3,
+      image: "/ChatGPT Image Aug 18, 2025, 09_40_46 PM.png",
+      title: "Blackout Connect",
+      description: "A company that develops a mobile app for controlling lights. Perfect for concerts or events where wireless lighting control is needed.",
+      buttonText: "Go to",
+      link: "https://blackoutconnect.com/"
+    }
+  ],
+  de: [
+    {
+      id: 1,
+      image: "/sep ct obrazek .png",
+      title: "SEP-CT",
+      description: "Smart Energy Point - Container Türme ist eine revolutionäre Technologie für das Energiemanagement. Es handelt sich um großvolumige Akkumulationstanks, die es ermöglichen, Wärmeenergieerzeugung und -verbrauch zeitlich zu trennen. Verschiedene Wärmequellen können beliebig kombiniert werden, ebenso der Verbrauch.",
+      buttonText: "Gehen zu",
+      link: "https://sep-ct.com/"
+    },
+    {
+      id: 2,
+      image: "/ntih pozar.jpg",
+      title: "NTiH",
+      description: "Ein Unternehmen, das sich auf Brandschutz und Technologien für modernes Wohnen konzentriert. Bietet auch Beratung und Informationen zum Schutz von Häusern und Gebäuden.",
+      buttonText: "Gehen zu",
+      link: "https://ntih.cz/"
+    },
+    {
+      id: 3,
+      image: "/ChatGPT Image Aug 18, 2025, 09_40_46 PM.png",
+      title: "Blackout Connect",
+      description: "Ein Unternehmen, das eine mobile App zur Lichtsteuerung entwickelt. Perfekt für Konzerte oder Veranstaltungen, bei denen drahtlose Lichtsteuerung benötigt wird.",
+      buttonText: "Gehen zu",
+      link: "https://blackoutconnect.com/"
+    }
+  ]
+};
 
-  // Automatické přepínání slidů každých 10 sekund
+  // Plynulé nekonečné rolování
   useEffect(() => {
+    if (isPaused) return;
+
+    const animationSpeed = 15; // rychlost rolování (nižší číslo = rychleji) - zrychleno z 30 na 15
     const interval = setInterval(() => {
-      setCurrentSlide((prev: number) => (prev + 1) % slides[language as keyof typeof slides].length);
-    }, 10000);
+      setTranslateX((prev) => {
+        const slideWidth = 100; // 100% šířka jednoho slidu
+        const totalSlides = slides[language as keyof typeof slides].length;
+        const maxTranslate = slideWidth * totalSlides;
+        
+        if (prev >= maxTranslate) {
+          return 0; // reset na začátek
+        }
+        return prev + 0.15; // plynulé posouvání po malých krocích - zrychleno z 0.1 na 0.15
+      });
+    }, animationSpeed);
 
     return () => clearInterval(interval);
-  }, [language, slides]);
-
-  const currentSlideData = slides[language as keyof typeof slides][currentSlide];
+  }, [language, slides, isPaused]);
   
   return (
     <section id="uvod" className="relative min-h-screen overflow-hidden">
@@ -120,7 +131,7 @@ const HeroSection = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 w-full h-full flex flex-col px-4 sm:px-6 lg:px-8 pt-32">
+  <div className="relative z-10 w-full h-full flex flex-col px-4 sm:px-6 lg:px-8 pt-16">
         {/* Hlavní nadpis */}
         <div className="max-w-6xl mx-auto w-full text-center mb-16 mt-16">
           <h1 className="text-5xl md:text-7xl font-black text-white drop-shadow-2xl mb-12">
@@ -128,59 +139,131 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Prezentace */}
+        {/* Prezentace s plynulým nekonečným rolováním */}
         <div className="max-w-6xl mx-auto w-full">
-          <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-8 border border-gray-600/30 shadow-2xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Obrázek vlevo */}
-              <div className="flex justify-center">
-                <img 
-                  src={currentSlideData.image} 
-                  alt={currentSlideData.title}
-                  className="w-40 h-40 object-contain"
-                />
-              </div>
-              
-              {/* Text a tlačítko vpravo */}
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  {currentSlideData.title}
-                </h2>
-                <p className="text-lg text-gray-200 leading-relaxed">
-                  {currentSlideData.description}
-                </p>
-                <a 
-                  href={currentSlideData.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  {currentSlideData.buttonText} →
-                </a>
-              </div>
-            </div>
-            
-            {/* Indikátory slidů */}
-            <div className="flex justify-center mt-8 space-x-3">
-              {slides[language as keyof typeof slides].map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide 
-                      ? 'bg-green-500 scale-125 shadow-lg shadow-green-500/50' 
-                      : 'bg-gray-400 hover:bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-            
-            {/* Timer progress bar */}
-            <div className="mt-4 w-full bg-gray-600/30 rounded-full h-1">
+          <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 border border-gray-600/30 shadow-2xl overflow-hidden">
+            {/* Nekonečně rolující obsah */}
+            <div className="relative">
               <div 
-                className="bg-green-500 h-1 rounded-full transition-all duration-1000"
-                style={{ width: `${((currentSlide + 1) / slides[language as keyof typeof slides].length) * 100}%` }}
-              />
+                className="flex"
+                style={{ 
+                  transform: `translateX(-${translateX}%)`,
+                  transition: 'none'
+                }}
+              >
+                {/* Původní slidy */}
+                {slides[language as keyof typeof slides].map((slide, index) => (
+                  <div key={`original-${slide.id}`} className="w-full flex-shrink-0 relative px-12">
+                    <div className="grid md:grid-cols-2 gap-8 items-stretch min-h-[280px]">
+                      {/* Obrázek vlevo */}
+                        <img 
+                          src={slide.image} 
+                          alt={slide.title}
+                          className={`object-contain ${
+                            ["SEP-CT", "NTiH", "Blackout Connect"].includes(slide.title)
+                              ? "w-full h-full max-w-[400px] max-h-[300px]"
+                              : "w-40 h-40"
+                          }`}
+                        />
+                      </div>
+                      
+                      {/* Text a tlačítko vpravo */}
+                      <div className="flex flex-col justify-between">
+                        <div className="space-y-6">
+                          <h2 className="text-3xl md:text-4xl font-bold text-white">
+                            {slide.title}
+                          </h2>
+                          <p className="text-lg text-gray-200 leading-relaxed">
+                            {slide.description}
+                          </p>
+                        </div>
+                        <div>
+                          <a 
+                            href={slide.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                          >
+                            {slide.buttonText} →
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Rozdělovač - bílá čárka napravo */}
+                    <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/70 to-transparent"></div>
+                  </div>
+                ))}
+                
+                {/* Duplikované slidy pro nekonečný efekt */}
+                {slides[language as keyof typeof slides].map((slide, index) => (
+                  <div key={`duplicate-${slide.id}`} className="w-full flex-shrink-0 relative px-12">
+                    <div className="grid md:grid-cols-2 gap-8 items-stretch min-h-[280px]">
+                      {/* Obrázek vlevo */}
+                      <div className="flex justify-center items-stretch">
+                        <img 
+                          src={slide.image} 
+                          alt={slide.title}
+                          className={`object-contain ${
+                            slide.title === "SEP-CT" 
+                              ? "w-full h-full max-w-[400px] max-h-[300px]" 
+                              : "w-40 h-40"
+                          }`}
+                        />
+                      </div>
+                      
+                      {/* Text a tlačítko vpravo */}
+                      <div className="flex flex-col justify-between">
+                        <div className="space-y-6">
+                          <h2 className="text-3xl md:text-4xl font-bold text-white">
+                            {slide.title}
+                          </h2>
+                          <p className="text-lg text-gray-200 leading-relaxed">
+                            {slide.description}
+                          </p>
+                        </div>
+                        <div>
+                          <a 
+                            href={slide.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                          >
+                            {slide.buttonText} →
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Rozdělovač - bílá čárka napravo */}
+                    <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/70 to-transparent"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Tlačítko pozastavit/spustit */}
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setIsPaused(!isPaused)}
+                className="flex items-center space-x-3 bg-gray-700/50 hover:bg-gray-600/70 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
+              >
+                {isPaused ? (
+                  <>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <span>Spustit rolování</span>
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6" />
+                    </svg>
+                    <span>Pozastavit rolování</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>
